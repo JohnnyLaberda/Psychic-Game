@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Psychic Letter Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1 class="text-center">
+                <strong>The Psychic Game</strong>
+            </h1>
+            <br>
+            <h3 class="text-center">
+                Guess what letter the computer is thinking of!</h3>
+            <hr>
+
+            <br>
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6">
+                <div id="howToPlay" class="card">
+                    <h4 class="card-header">How to play:</h4>
+                    <div class="card-body">
+                        <div>
+                            <p id="directions-text">Hit the letter key of your guess!</p>
+                            <p id="playerchoice-text"></p>
+                            <p id="computerchoice-text"></p>
+                            <p id="wins-text"></p>
+                            <p id="losses-text"></p>
+                            <p id="guessesleft-text"></p>
+                            <p id="guessessofar-text"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // My array of possible guesses
+            var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",];
+
+            // Variables that contain wins, loses, player guesses left, and guesses so far
+            var wins = 0;
+            var loses = 0;
+            var guessesLeft = 0;
+            var guessesSoFar = 0;
+
+            // Variables that will show changes in the HTML
+            var directionsText = document.getElementById("directions-text");
+            var playerChoiceText = document.getElementById("playerchoice-text");
+            var computerChoiceText = document.getElementById("computerchoice-text");
+            var winsText = document.getElementById("wins-text");
+            var lossesText = document.getElementById("losses-text");
+            var guessesLeft = document.getElementById("guessesleft-text");
+            var guessesSoFar = document.getElementById("guessessofar-text");
+
+            var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+            // My event function - when the player presses a letter key
+            document.onkeyup = function (event) {
+
+                var playerGuess = event.key.toUpperCase();
+                console.log(playerGuess);
+                
+                var guessIndex = letters.indexOf(playerGuess);
+        // Logic to play the game and show the outcome
+               if ((guessIndex >= 0 && guessIndex === computerGuess)) {
+                   wins++
+               } 
+               else if (())
+                
+
+        directionsText.textContent = "";
+
+        playerChoiceText.textContent = "You chose: " + playerGuess;
+        computerChoiceText.textContent = "The computer chose: " + computerGuess;
+        winsText.textContent = "wins: " + wins;
+        lossesText.textContent = "losses: " + loses;
+        guessesLeft.textContent = "guesses left: " + guessesLeft;
+        guessesSoFar.textContent = "guesses so far: " + guessesSoFar;
+                }
+            });
+
+               
+    </script>
+    
+    </div>
+
+</body>
+
+</html>
